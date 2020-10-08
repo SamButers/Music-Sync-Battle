@@ -10,6 +10,7 @@ extents = Vector2( 6.20908, 6.39923 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
+player_speed = 200
 
 [node name="soul" type="Sprite" parent="Player"]
 texture = ExtResource( 1 )
