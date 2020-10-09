@@ -1,14 +1,13 @@
-extends KinematicBody2D
+extends RigidBody2D
 class_name Bullet
 
-var speed;
+var impulse_strength;
 var direction;
+
+func _on_body_entered(body):
+	body.getHit();
 	
-func _physics_process(delta):
-	var collision = move_and_collide(Vector2(self.speed * cos(self.direction), self.speed * sin(self.direction)));
-	
-	if(collision):
-		hide();
-		queue_free();
-		collision.collider.hide();
-		collision.collider.queue_free();
+func change_trajectory(impulse_strength, direction, damping = 0):
+	set_linear_damp(damping);
+	apply_central_impulse(Vector2(impulse_strength * cos(direction), impulse_strength * sin(direction)));
+

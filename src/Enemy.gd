@@ -4,6 +4,12 @@ export var shoot_frequency = 1;
 var time_elapsed = shoot_frequency;
 var bullet;
 
+func shoot(strength, target, damping = 0, size = 1, random_start = false, random_end = false):
+	var new_bullet = bullet.instance();
+	new_bullet.position = Vector2(0, 0);
+	new_bullet.change_trajectory(strength, get_angle_to(target), damping);
+	add_child(new_bullet);
+
 func _ready():
 	bullet = preload("res://src/scenes/Bullet.tscn");
 
@@ -13,8 +19,4 @@ func _physics_process(delta):
 		
 	else:
 		time_elapsed = shoot_frequency;
-		var new_bullet = bullet.instance();
-		new_bullet.position = Vector2(0, 0);
-		new_bullet.speed = 50;
-		new_bullet.direction = get_angle_to(get_parent().get_child(1).position);
-		add_child(new_bullet);
+		shoot(100, get_parent().get_child(1).position);

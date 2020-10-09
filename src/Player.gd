@@ -2,9 +2,12 @@ extends KinematicBody2D
 
 export var player_speed = 100;
 
-
 func _ready():
 	pass
+	
+func getHit():
+	hide();
+	queue_free();
 	
 func _physics_process(delta):
 	var movement := Vector2(0, 0);
