@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Bullet",
 "language": "GDScript",
 "path": "res://src/Bullet.gd"
+}, {
+"base": "Timer",
+"class": "BulletTimer",
+"language": "GDScript",
+"path": "res://src/BulletTimer.gd"
 } ]
 _global_script_class_icons={
-"Bullet": ""
+"Bullet": "",
+"BulletTimer": ""
 }
 
 [application]
