@@ -1,10 +1,12 @@
 extends Node2D
 
 export var shoot_frequency = 1;
+export var state = 0;
 var time_elapsed = shoot_frequency;
+var previous_state = state;
 var bullet;
 var BulletTimer;
-var state = 0;
+onready var player = get_parent().get_child(1);
 
 func shoot(strength, target, damping = 0, size = 1, random_start = false, random_end = false):
 	var new_bullet = bullet.instance();
@@ -42,11 +44,25 @@ func bullet_sleeping_barrage(target, strength = 400, time = 0.833333, quantity =
 	for c in range(quantity):
 		var new_bullet = bullet.instance();
 		new_bullet.position = Vector2(0, 0);
-		new_bullet.change_trajectory_through_direction(200, rand_range(-PI, 0), 0.4);
+		new_bullet.change_trajectory_through_direction(rand_range(100, 300), rand_range(-PI, 0), 0.4);
 		timer.bullet_array.push_back(new_bullet);
 		add_child(new_bullet);
 		
 	timer.start(time);
+	
+func pattern_barrage(direction = -PI/2, arc_angle = PI, strength = 400, quantity = 30):
+	var angle_delta = arc_angle/quantity;
+	var current_angle = direction - arc_angle/2;
+	var maximum_angle = direction + arc_angle/2;
+	
+	while(current_angle < maximum_angle):
+		var new_bullet = bullet.instance();
+		new_bullet.position = Vector2(0, 0);
+		add_child(new_bullet);
+		new_bullet.change_trajectory_through_direction(strength, current_angle);
+		
+		current_angle += angle_delta;
+	pass
 
 func _ready():
 	bullet = preload("res://src/scenes/Bullet.tscn");
@@ -56,13 +72,32 @@ func _physics_process(delta):
 #	States
 #	State 0: Not moving
 #	State 1: Periodically shooting
+#	State 2: Charging sleeping bullets
+#	State 4: Laser
+
 	if(state == 1):
+		if(time_elapsed > 0):
+			time_elapsed -= delta;
+			
+		else:
+			time_elapsed = shoot_frequency;
+			pattern_barrage(get_angle_to(player.position), PI, 400, 50);
+#			shoot(100, get_parent().get_child(1).position);
+		
+	elif(state == 2):
 		pass
+		
+	elif(state == 3):
+		pass
+		
+	elif(state == 4):
+		pass
+		
 	else:
 		if(time_elapsed > 0):
 			time_elapsed -= delta;
 			
 		else:
 			time_elapsed = shoot_frequency;
-			bullet_sleeping_barrage(to_local(get_parent().get_child(1).position));
+			bullet_sleeping_barrage(to_local(player.position), 600);
 #			shoot(100, get_parent().get_child(1).position);
