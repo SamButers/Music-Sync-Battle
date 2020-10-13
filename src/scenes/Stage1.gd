@@ -2,6 +2,7 @@ extends Node2D
 
 var enemy;
 var player;
+var animationPlayer;
 
 var time_begin;
 var time_delay;
@@ -14,12 +15,13 @@ func _ready():
 	player = get_child(1);
 	enemy.set_process(false);
 	enemy.set_physics_process(false);
-	enemy.get_child(2).play("Intro");
+	animationPlayer = enemy.get_child(2);
+	animationPlayer.play("Intro");
 	set_process(false);
 
 func _on_Animation_Finished(anim_name):
 	if(anim_name == "Intro"):
-		enemy.get_child(2).play("Intro2");
+		animationPlayer.play("Intro2");
 		time_begin = OS.get_ticks_usec();
 		time_delay = AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency();
 		set_process(true);
@@ -32,10 +34,13 @@ func _process(delta):
 	time -= time_delay;
 	time = max(0, time);
 	
+	if(player == null):
+		get_tree().paused = true;
+	
 	if(!thing && time >= 6.664):
 		enemy.generic_direction = -PI/2;
 		enemy.generic_angle = PI/2;
-		enemy.generic_strength = 250;
+		enemy.generic_strength = Vector2(100, 200);
 		enemy.generic_damping = 0.5;
 		enemy.shoot_frequency = 0.2;
 		enemy.time_elapsed = 0;
@@ -46,6 +51,7 @@ func _process(delta):
 		enemy.wake_generic_bullets(enemy.to_local(player.position), 500);
 		enemy.state = 1;
 		enemy.shoot_frequency = 0.5;
+		animationPlayer.play("Intro3");
 		thing2 = true;
 #	print("Time is: ", time);
 
