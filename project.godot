@@ -30,6 +30,12 @@ config/name="Megalo"
 run/main_scene="res://src/scenes/Stage.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=600
+window/size/height=1024
+window/size/resizable=false
+
 [input]
 
 move_left={

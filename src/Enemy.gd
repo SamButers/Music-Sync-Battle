@@ -2,10 +2,18 @@ extends Node2D
 
 export var shoot_frequency = 1;
 export var state = 0;
+var generic_direction = 0;
+var generic_angle = 0;
+var generic_strength = 300;
+var generic_damping = 0.1;
+var generic_bullet_array : Array = [];
+
 var time_elapsed = shoot_frequency;
 var previous_state = state;
+
 var bullet;
 var BulletTimer;
+
 onready var player = get_parent().get_child(1);
 
 func shoot(strength, target, damping = 0, size = 1, random_start = false, random_end = false):
@@ -62,7 +70,12 @@ func pattern_barrage(direction = -PI/2, arc_angle = PI, strength = 400, quantity
 		new_bullet.change_trajectory_through_direction(strength, current_angle);
 		
 		current_angle += angle_delta;
-	pass
+
+func wake_generic_bullets(target, strength):
+	for bullet in generic_bullet_array:
+		if(bullet != null):
+			bullet.change_trajectory_through_normalization(strength, (target - bullet.position).normalized());
+	generic_bullet_array.clear();
 
 func _ready():
 	bullet = preload("res://src/scenes/Bullet.tscn");
@@ -81,11 +94,20 @@ func _physics_process(delta):
 			
 		else:
 			time_elapsed = shoot_frequency;
-			pattern_barrage(get_angle_to(player.position), PI, 400, 50);
+			pattern_barrage(get_angle_to(player.position), PI, 400, 30);
 #			shoot(100, get_parent().get_child(1).position);
 		
 	elif(state == 2):
-		pass
+		if(time_elapsed > 0):
+			time_elapsed -= delta;
+		else:
+			var new_bullet = bullet.instance();
+			new_bullet.position = Vector2(0, 0);
+			new_bullet.change_trajectory_through_direction(rand_range(generic_strength - 100, generic_strength + 100), rand_range(generic_direction - generic_angle, generic_direction + generic_angle), generic_damping);
+			generic_bullet_array.push_back(new_bullet);
+			add_child(new_bullet);
+			
+			time_elapsed = shoot_frequency;
 		
 	elif(state == 3):
 		pass
