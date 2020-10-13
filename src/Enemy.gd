@@ -30,12 +30,13 @@ func _wake_bullet_barrage(timer, target, strength):
 		target = to_local(target.position);
 		
 	for bullet in timer.bullet_array:
-		bullet.change_trajectory_through_normalization(strength, (target - bullet.position).normalized());
+		if(bullet != null):
+			bullet.change_trajectory_through_normalization(rand_range(strength.x, strength.y), (target - bullet.position).normalized());
 		
 	remove_child(timer);
 	timer.queue_free();
 
-func bullet_sleeping_barrage(direction, angle, strength, target, target_strength = 600, time = 0.833333, quantity = 30):
+func bullet_sleeping_barrage(direction, angle, strength, target, target_strength = Vector2(600, 750), time = 0.833333, quantity = 30):
 	var timer = BulletTimer.new();
 	add_child(timer);
 	timer.connect("timeout", self, "_wake_bullet_barrage", [timer, target, target_strength]);
