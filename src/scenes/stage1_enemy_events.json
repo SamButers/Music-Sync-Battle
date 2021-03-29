@@ -1,0 +1,641 @@
+[
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  6.664,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  6.873,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  7.082,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  7.291,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  7.499,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  7.707,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  7.916,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  8.021,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  8.129,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  8.338,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  8.540,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  8.748,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  8.854,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  8.960,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  9.167,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  9.374,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  9.583,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  9.688,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  9.793,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  10.002,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  10.208,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  10.416,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  10.522,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  10.627,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  10.835,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  11.042,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  11.249,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  11.355,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  11.459,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  11.668,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  11.770,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  11.824,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  11.878,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  12.085,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  12.189,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  12.294,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  12.397,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  12.502,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  12.710,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	},
+	
+	{
+		"event": "singleSleepingBullet",
+		"type": 0,
+		"time":  12.918,
+		"collection": 0,
+		"data": {
+			"strength": {
+				"min": 100,
+				"max": 200
+			},
+			"damping": 0.5,
+			"direction": -1.57,
+			"arc": 1.57 
+		}
+	}
+]
