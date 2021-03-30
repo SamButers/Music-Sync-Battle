@@ -1,18 +1,17 @@
 extends Node2D
 
-var sleeping_bullets : Dictionary = {};
-
 var bullet;
 var BulletTimer;
 var animation_player;
 var stage;
+var player;
+
+var sleeping_bullets : Dictionary = {};
 
 var time_begin;
 var time_delay;
 
 var enemy_events;
-
-onready var player = get_parent().get_child(1);
 
 func _ready():
 	set_process(false);
@@ -29,6 +28,7 @@ func _ready():
 	BulletTimer = preload("res://src/BulletTimer.gd");
 	animation_player = get_child(2);
 	stage = get_parent();
+	player = stage.get_child(1);
 	animation_player.play("Intro");
 
 func _on_animation_finished(anim_name):
@@ -39,6 +39,25 @@ func _on_animation_finished(anim_name):
 		set_process(true);
 		set_physics_process(true);
 		stage.playBGM();
+		
+func addToCollection(bullet, collection):
+	if(!sleeping_bullets.has(collection)):
+		sleeping_bullets[collection] = [];
+	sleeping_bullets[collection].push_back(bullet);
+		
+func wake_generic_bullets(target, collection, strength):
+	for bullet in sleeping_bullets[collection]:
+		if(bullet != null):
+			bullet.change_trajectory_through_normalization(strength, (target - bullet.global_position).normalized());
+	sleeping_bullets[collection].clear();
+
+func sleeping_barrage(direction, angle, strength, collection, quantity = 30):
+	for c in range(quantity):
+		var new_bullet = bullet.instance();
+		new_bullet.position = Vector2(0, 0);
+		new_bullet.change_trajectory_through_direction(rand_range(strength.x, strength.y), rand_range(direction - angle, direction + angle), 0.4);
+		addToCollection(new_bullet, collection);
+		add_child(new_bullet);
 
 #func shoot(strength, target, damping = 0, size = 1, random_start = false, random_end = false):
 #	var new_bullet = bullet.instance();
@@ -57,21 +76,6 @@ func _on_animation_finished(anim_name):
 #	remove_child(timer);
 #	timer.queue_free();
 #
-#func bullet_sleeping_barrage(direction, angle, strength, target, target_strength = Vector2(600, 750), time = 0.833333, quantity = 30):
-#	var timer = BulletTimer.new();
-#	add_child(timer);
-#	timer.connect("timeout", self, "_wake_bullet_barrage", [timer, target, target_strength]);
-#	timer.one_shot = true;
-#	timer.bullet_array = Array();
-#
-#	for c in range(quantity):
-#		var new_bullet = bullet.instance();
-#		new_bullet.position = Vector2(0, 0);
-#		new_bullet.change_trajectory_through_direction(rand_range(strength.x, strength.y), rand_range(direction - angle, direction + angle), 0.4);
-#		timer.bullet_array.push_back(new_bullet);
-#		add_child(new_bullet);
-#
-#	timer.start(time);
 #
 #func pattern_barrage(direction = -PI/2, arc_angle = PI, strength = 400, quantity = 30):
 #	var angle_delta = arc_angle/quantity;
@@ -105,16 +109,19 @@ func _physics_process(delta):
 		
 		if(ev.event == 'singleSleepingBullet'):
 			if(ev.type == 0):
-				if(!sleeping_bullets.has(ev.collection)):
-					sleeping_bullets[ev.collection] = [];
-					
 				var new_bullet = bullet.instance();
 				new_bullet.position = Vector2(0, 0);
 				new_bullet.change_trajectory_through_direction(rand_range(ev.data.strength.min, ev.data.strength.max),
 															   rand_range(ev.data.direction - ev.data.arc, ev.data.direction + ev.data.arc),
 															   ev.data.damping);
-				sleeping_bullets[ev.collection].push_back(new_bullet);
-				add_child(new_bullet)
+				addToCollection(new_bullet, ev.collection);
+				add_child(new_bullet);
+				
+		elif(ev.event == 'wakeSleepingBullets'):
+			wake_generic_bullets(player.global_position, ev.collection, ev.data.strength);
+			
+		elif(ev.event == 'barrageSleepingBullets'):
+			sleeping_barrage(ev.data.direction, ev.data.arc, Vector2(ev.data.strength.min, ev.data.strength.max), ev.collection, ev.data.quantity);
 #		var callback = funcref(self, listeners_array[0][1]);
 #		callback.call_funcv(listeners_array[0][2]);
 	

@@ -637,5 +637,41 @@
 			"direction": -1.57,
 			"arc": 1.57 
 		}
+	},
+	
+	{
+		"event": "wakeSleepingBullets",
+		"type": 1,
+		"time":  13.747,
+		"collection": 0,
+		"data": {
+			"strength": 600
+		}
+	},
+	
+	{
+		"event": "barrageSleepingBullets",
+		"type": 0,
+		"time" : 14.578,
+		"collection": 1,
+		"data": {
+			"direction": 1.57,
+			"arc": 0.3925,
+			"strength": {
+				"min": 500,
+				"max": 650
+			},
+			"quantity": 30
+		}
+	},
+	
+	{
+		"event": "wakeSleepingBullets",
+		"type": 1,
+		"time":  15.415,
+		"collection": 1,
+		"data": {
+			"strength": 650
+		}
 	}
 ]
