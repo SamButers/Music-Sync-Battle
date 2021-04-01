@@ -640,38 +640,210 @@
 	},
 	
 	{
+		"event": "animation",
+		"time": 13.747,
+		"name": "Intro3"
+	},
+	
+	{
 		"event": "wakeSleepingBullets",
 		"type": 1,
 		"time":  13.747,
 		"collection": 0,
 		"data": {
-			"strength": 600
+			"strength": 800
 		}
 	},
 	
 	{
-		"event": "barrageSleepingBullets",
+		"event": "arcBarrage",
 		"type": 0,
 		"time" : 14.578,
-		"collection": 1,
 		"data": {
-			"direction": 1.57,
-			"arc": 0.3925,
-			"strength": {
-				"min": 500,
-				"max": 650
-			},
-			"quantity": 30
+			"direction": 1.5708,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
 		}
 	},
 	
 	{
-		"event": "wakeSleepingBullets",
-		"type": 1,
-		"time":  15.415,
-		"collection": 1,
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 15.415,
 		"data": {
-			"strength": 650
+			"direction": 1.6580,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 16.246,
+		"data": {
+			"direction": 1.5708,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 17.078,
+		"data": {
+			"direction": 1.6580,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 17.915,
+		"data": {
+			"direction": 1.5708,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 18.748,
+		"data": {
+			"direction": 1.6580,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 19.167,
+		"data": {
+			"direction": 1.5708,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 19.167,
+		"data": {
+			"direction": 1.5708,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 19.374,
+		"data": {
+			"direction": 1.5708,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 19.581,
+		"data": {
+			"direction": 1.5708,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 20.417,
+		"data": {
+			"direction": 1.6580,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 21.244,
+		"data": {
+			"direction": 1.5708,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 22.080,
+		"data": {
+			"direction": 1.6580,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 22.914,
+		"data": {
+			"direction": 1.5708,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 23.748,
+		"data": {
+			"direction": 1.6580,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 60
+		}
+	},
+	
+	{
+		"event": "arcBarrage",
+		"type": 0,
+		"time" : 24.579,
+		"data": {
+			"direction": 1.5708,
+			"arc": 3.1415,
+			"strength": 700,
+			"quantity": 120
 		}
 	}
 ]
