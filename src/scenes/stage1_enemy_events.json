@@ -845,5 +845,17 @@
 			"strength": 700,
 			"quantity": 120
 		}
+	},
+	
+	{
+		"event": "circleBarrage",
+		"type": 0,
+		"time" : 24.997,
+		"data": {
+			"strength": 700,
+			"direction": 1.5708,
+			"quantity": 30,
+			"radius": 100
+		}
 	}
 ]

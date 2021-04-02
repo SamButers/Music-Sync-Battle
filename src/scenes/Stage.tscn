@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/scenes/Stage1.gd" type="Script" id=1]
 [ext_resource path="res://src/Player.gd" type="Script" id=2]
@@ -121,6 +121,9 @@ extents = Vector2( 6.20908, 6.39923 )
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 304, 512 )
 
+[sub_resource type="Environment" id=12]
+glow_enabled = true
+
 [node name="Stage" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -176,5 +179,8 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
 position = Vector2( 304, 512 )
 shape = SubResource( 11 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 12 )
 [connection signal="animation_finished" from="Enemy/AnimationPlayer" to="Enemy" method="_on_animation_finished"]
 [connection signal="body_exited" from="Bounds" to="." method="_on_Bounds_body_exited"]

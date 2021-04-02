@@ -1,17 +1,20 @@
 extends Node2D
 
 var bullet;
-var BulletTimer;
+var BulletGroup;
 var animation_player;
 var stage;
 var player;
 
 var sleeping_bullets : Dictionary = {};
+var groups : Dictionary = {};
 
 var time_begin;
 var time_delay;
 
 var enemy_events;
+
+const _360_DEGREES = 2 * PI;
 
 func _ready():
 	set_process(false);
@@ -24,8 +27,8 @@ func _ready():
 	
 	f.close();
 	
-	bullet = preload("res://src/scenes/Bullet.tscn");
-	BulletTimer = preload("res://src/BulletTimer.gd");
+#	bullet = preload("res://src/scenes/Bullet.tscn");
+#	BulletGroup = preload("res://src/scenes/BulletGroup.tscn");
 	animation_player = get_child(2);
 	stage = get_parent();
 	player = stage.get_child(1);
@@ -53,7 +56,7 @@ func wake_bullets(target, collection, strength):
 
 func sleeping_barrage(direction, angle, strength, collection, quantity = 30):
 	for c in range(quantity):
-		var new_bullet = bullet.instance();
+		var new_bullet = stage.getBullet();
 		new_bullet.position = Vector2(0, 0);
 		new_bullet.change_trajectory_through_direction(rand_range(strength.x, strength.y), rand_range(direction - angle, direction + angle), 0.4);
 		addToCollection(new_bullet, collection);
@@ -65,51 +68,37 @@ func pattern_barrage(direction = PI/2, arc_angle = PI, strength = 600, quantity 
 	var maximum_angle = direction + arc_angle/2;
 
 	while(current_angle < maximum_angle):
-		var new_bullet = bullet.instance();
+		var new_bullet = stage.getBullet();
 		new_bullet.position = Vector2(0, 0);
 		add_child(new_bullet);
 		new_bullet.change_trajectory_through_direction(strength, current_angle);
 
 		current_angle += angle_delta;
-
-#func shoot(strength, target, damping = 0, size = 1, random_start = false, random_end = false):
-#	var new_bullet = bullet.instance();
-#	new_bullet.position = Vector2(0, 0);
-#	new_bullet.change_trajectory_through_direction(strength, get_angle_to(target), damping);
-#	add_child(new_bullet);
-#
-#func _wake_bullet_barrage(timer, target, strength):
-#	if(typeof(target) != 5):
-#		target = to_local(target.position);
-#
-#	for bullet in timer.bullet_array:
-#		if(bullet != null):
-#			bullet.change_trajectory_through_normalization(rand_range(strength.x, strength.y), (target - bullet.position).normalized());
-#
-#	remove_child(timer);
-#	timer.queue_free();
-#
-#
-#func pattern_barrage(direction = -PI/2, arc_angle = PI, strength = 400, quantity = 30):
-#	var angle_delta = arc_angle/quantity;
-#	var current_angle = direction - arc_angle/2;
-#	var maximum_angle = direction + arc_angle/2;
-#
-#	while(current_angle < maximum_angle):
-#		var new_bullet = bullet.instance();
+		
+func circle_barrage(direction, strength, quantity, radius, tween_duration = 0.25):
+	var bullet_group = stage.getBulletGroup();
+#	var tween = Tween.new();
+	var angle_delta = _360_DEGREES/quantity;
+	var current_angle = 0;
+	
+	add_child(bullet_group);
+#	add_child(tween);
+	bullet_group.position = Vector2(0, 0);
+	bullet_group.change_trajectory_through_direction(strength, direction);
+	
+	while(current_angle < _360_DEGREES):
+		var new_bullet = stage.getBullet();
+		bullet_group.add_child(new_bullet);
+#		No expanding for now
 #		new_bullet.position = Vector2(0, 0);
-#		add_child(new_bullet);
-#		new_bullet.change_trajectory_through_direction(strength, current_angle);
 #
-#		current_angle += angle_delta;
-#
-#func wake_generic_bullets(target, strength):
-#	for bullet in generic_bullet_array:
-#		if(bullet != null):
-#			bullet.change_trajectory_through_normalization(strength, (target - bullet.position).normalized());
-#	generic_bullet_array.clear();
+#		tween.interpolate_property(new_bullet, "position", new_bullet.position, Vector2(cos(current_angle), sin(current_angle)) * radius, tween_duration);
+		
+		new_bullet.position = Vector2(cos(current_angle), sin(current_angle)) * radius;
+		current_angle += angle_delta;
+#	tween.start();
 
-func _physics_process(delta):
+func _process(delta):
 	var time = (OS.get_ticks_usec() - time_begin) / 1000000.0;
 	time -= time_delay;
 	time = max(0, time);
@@ -123,7 +112,7 @@ func _physics_process(delta):
 		match ev.event:
 			'singleSleepingBullet':
 				if(ev.type == 0):
-					var new_bullet = bullet.instance();
+					var new_bullet = stage.getBullet();
 					new_bullet.position = Vector2(0, 0);
 					new_bullet.change_trajectory_through_direction(rand_range(ev.data.strength.min, ev.data.strength.max),
 																   rand_range(ev.data.direction - ev.data.arc, ev.data.direction + ev.data.arc),
@@ -143,46 +132,7 @@ func _physics_process(delta):
 			'arcBarrage':
 				pattern_barrage(ev.data.direction, ev.data.arc, ev.data.strength, ev.data.quantity);
 				
-#		var callback = funcref(self, listeners_array[0][1]);
-#		callback.call_funcv(listeners_array[0][2]);
-	
-#	States
-#	State 0: Not moving
-#	State 1: Periodically shooting
-#	State 2: Charging sleeping bullets
-#	State 4: Laser
-
-#	if(state == 1):
-#		if(time_elapsed > 0):
-#			time_elapsed -= delta;
-#
-#		else:
-#			time_elapsed = shoot_frequency;
-#			pattern_barrage(get_angle_to(player.position), PI, 400, 30);
-#
-#	elif(state == 2):
-#		if(time_elapsed > 0):
-#			time_elapsed -= delta;
-#		else:
-#			var new_bullet = bullet.instance();
-#			new_bullet.position = Vector2(0, 0);
-#			new_bullet.change_trajectory_through_direction(rand_range(generic_strength.x, generic_strength.y), rand_range(generic_direction - generic_angle, generic_direction + generic_angle), generic_damping);
-#			generic_bullet_array.push_back(new_bullet);
-#			add_child(new_bullet);
-#
-#			time_elapsed = shoot_frequency;
-#
-#	elif(state == 3):
-#		pass
-#
-#	elif(state == 4):
-#		pass
-#
-#	else:
-#		if(time_elapsed > 0):
-#			time_elapsed -= delta;
-#
-#		else:
-#			time_elapsed = shoot_frequency;
-#			bullet_sleeping_barrage(-PI/2, PI/2, Vector2(100, 200), player);
-##			shoot(100, get_parent().get_child(1).position);
+			'circleBarrage':
+				if(!ev.type):
+					circle_barrage(ev.data.direction, ev.data.strength, ev.data.quantity, ev.data.radius);
+				
